@@ -1,15 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
-// import 'bootstrap/dist/css/bootstrap.min.css'; // 
 import Tchat from './containers/Tchat';
-import indexReducer from './reducers'
+import mainReducer from './reducers/mainReducer'
 
 const store = createStore(
-    indexReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    mainReducer,
+    compose(
+        applyMiddleware(thunk),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
 )
 
 render(

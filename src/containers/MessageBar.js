@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { addMessage } from '../actions/messages.js'
 import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { addMessage } from '../actions/messagesAction'
 
 class MessageBar extends PureComponent {
 
@@ -29,16 +30,13 @@ class MessageBar extends PureComponent {
     }
 
     sendText() {
-        console.log(`send: ${this.state.content}`)
-        // this.props.dispatch(addMessage(this.state.content))
-        this.props.addMessage(this.state.content)
+        this.props.addMessage(this.state.content, 'Florian')
         this.setState({ content: '' })
     }
 
     //  event handlers
     textChanged = (event) => {
         this.setState({ content: event.target.value })
-        console.log('textChanged: ' + this.state.content)
     }
 
     buttonClicked = () => {
@@ -50,6 +48,7 @@ class MessageBar extends PureComponent {
             this.sendText()
         }
     }
+
     // Render
     render() {
         return (
@@ -65,10 +64,7 @@ class MessageBar extends PureComponent {
 const mapDispatchToProps = (dispatch) => {
     return ({
         addMessage: bindActionCreators(addMessage, dispatch),
-        // addMessage2: (content) => dispatch(addMessage(content))
     })
 }
 
-// export default MessageBar
 export default connect(null, mapDispatchToProps)(MessageBar)
-// export default connect(null, {addMessage})(MessageBar)

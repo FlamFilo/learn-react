@@ -1,12 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Twemoji } from 'react-emoji-render'
-class MessageItem extends Component {
-    render() {
-        return (
-            <div>
-                <Twemoji text={this.props.content}/>
-            </div>
-        )
-    }
+
+function MessageItem({message}) {
+    return (
+        <div>
+            <small>@{message.username}</small>
+            <br/>
+            <Twemoji text={message.message}/>
+            <br/>
+        </div>
+    )
 }
+
 export default MessageItem
