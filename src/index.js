@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-import Tchat from './containers/Tchat';
+import Tchat from './components/Tchat'
 import mainReducer from './reducers/mainReducer'
 
 const loggerMiddleware = store => next => action => {

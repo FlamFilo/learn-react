@@ -2,24 +2,17 @@ import React, { PureComponent } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import MessageBar from './MessageBar'
-import MessageList from '../components/MessageList'
 import { getMessages } from '../actions/messagesAction'
+import MessageList from '../components/MessageList'
 
-class Tchat extends PureComponent {
+class MessageListContainer extends PureComponent {
 
     componentDidMount() {
         this.props.getMessages()
     }
 
-    render() {
-        return (
-            <section>
-                <h2 style={{textAlign: 'center'}}>React Tchat</h2>
-                <MessageList messages={this.props.messages.values} />
-                <MessageBar />
-            </section>
-        )
+    render () {
+        return <MessageList messages={this.props.messages.values} />
     }
 }
 
@@ -33,4 +26,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tchat)
+export default connect(mapStateToProps, mapDispatchToProps)(MessageListContainer)
