@@ -3,24 +3,22 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { addMessage } from '../actions/messagesAction'
+import { MESSAGE_MAX_LENGTH } from '../constants/messageConstant'
 
 class MessageBar extends PureComponent {
-
-    static MAX_VALUE = 20
-
     constructor(props) {
         super(props)
         this.state = { content: '' }
     }
 
     remainingCharactersNumber() {
-        return MessageBar.MAX_VALUE - this.state.content.length
+        return MESSAGE_MAX_LENGTH - this.state.content.length
     }
 
     remainingCharactersColor() {
         let remainingCharactersNumber = this.remainingCharactersNumber()
         let textColor = 'green'
-        if ((MessageBar.MAX_VALUE / 4) > remainingCharactersNumber) {
+        if ((MESSAGE_MAX_LENGTH / 4) > remainingCharactersNumber) {
             textColor = 'orange'
         }
         if (0 > remainingCharactersNumber) {
