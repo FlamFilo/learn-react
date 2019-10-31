@@ -15,7 +15,7 @@ class Tchat extends PureComponent {
     render() {
         return (
             <section>
-                <h2>Tchat</h2>
+                <h2 style={{textAlign: 'center'}}>React Tchat</h2>
                 <MessageList messages={this.props.messages.values} />
                 <MessageBar />
             </section>

@@ -51,9 +51,9 @@ class MessageBar extends PureComponent {
     render() {
         return (
             <div>
-                <input onChange={this.textChanged} onKeyDown={this.keyPressed} type='text' value={this.state.content} />
-                <button onClick={this.buttonClicked} type='button'>Send</button>
-                <p style={{ color: this.remainingCharactersColor() }}>{this.remainingCharactersNumber()}</p>
+                <input style={{width: '50%'}} onChange={this.textChanged} onKeyDown={this.keyPressed} type='text' value={this.state.content} />
+                <button style={{backgroundColor: 'coral', borderColor: 'transparent'}} onClick={this.buttonClicked} type='button'>Send</button>
+                <span style={{ color: this.remainingCharactersColor(), marginLeft: '5px' }}>{this.remainingCharactersNumber()}</span>
             </div>
         )
     }

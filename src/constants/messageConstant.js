@@ -1,1 +1,1 @@
-export const MESSAGE_MAX_LENGTH = 280
+export const MESSAGE_MAX_LENGTH = 20

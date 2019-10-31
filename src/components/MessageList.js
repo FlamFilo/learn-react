@@ -6,9 +6,9 @@ function MessageList ({messages}) {
         return <p>No message(s) yet</p>
     }
     return (
-        <ul>
+        <ul style={{padding: '5px', backgroundColor: 'coral', borderRadius: '15px' }}>
             {messages.map((message, index) => (
-                <li key={index}>
+                <li key={index} style={{listStyleType: 'none'}}>
                     <MessageItem message={message}/>
                 </li>
             ))}
