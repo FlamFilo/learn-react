@@ -28,7 +28,7 @@ class MessageBar extends PureComponent {
     }
 
     sendText() {
-        this.props.addMessage(this.state.content, 'Florian')
+        this.props.addMessage(this.state.content, 'Florian', new Date().toISOString())
         this.setState({ content: '' })
     }
 

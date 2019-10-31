@@ -13,7 +13,8 @@ const messages = (state = defaultValues, action) => {
             let addMessageState = Object.assign({}, state)
             addMessageState.values.push({
                 message: action.message,
-                username: action.username
+                username: action.username,
+                sendAt: action.sendAt,
             })
             return addMessageState
             
