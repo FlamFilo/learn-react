@@ -1,14 +1,21 @@
 import React, { PureComponent } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { getMessages } from '../actions/messagesAction'
 import MessageList from '../components/MessageList'
+import { webSocket } from '../services/webSocket.js'
 
 class MessageListContainer extends PureComponent {
-
+    
     componentDidMount() {
-        this.props.getMessages()
+        // this.props.getMessages()
+        webSocket.onmessage = (event) => {
+            try {
+                const action = JSON.parse(event.data)
+                this.props.dispatch(action)
+            } catch (error) {
+                console.warn(error)
+            }
+        }
     }
 
     render () {
@@ -20,10 +27,4 @@ const mapStateToProps = (state) => ({
     messages: state.messages
 })
 
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        getMessages: bindActionCreators(getMessages, dispatch),
-    })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MessageListContainer)
+export default connect(mapStateToProps)(MessageListContainer)

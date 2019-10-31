@@ -10,11 +10,12 @@ const messages = (state = defaultValues, action) => {
     switch(action.type) {
 
         case actionType.ADD_MESSAGE :
+        case 'SEND_MESSAGE' :
             let addMessageState = Object.assign({}, state)
             addMessageState.values.push({
                 message: action.message,
                 username: action.username,
-                sendAt: action.sendAt,
+                sentAt: action.sentAt,
             })
             return addMessageState
             

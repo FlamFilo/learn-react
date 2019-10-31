@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 import MessageBar from '../containers/MessageBar'
 import MessageListContainer from '../containers/MessageListContainer'

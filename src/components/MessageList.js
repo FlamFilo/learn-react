@@ -6,7 +6,7 @@ function MessageList ({messages}) {
         return <p>No message(s) yet</p>
     }
     return (
-        <ul style={{padding: '5px', backgroundColor: 'coral', borderRadius: '15px' }}>
+        <ul style={{padding: '5px', backgroundColor: 'coral', borderRadius: '15px', overflow: 'auto', maxHeight: '200px' }}>
             {messages.map((message, index) => (
                 <li key={index} style={{listStyleType: 'none'}}>
                     <MessageItem message={message}/>
